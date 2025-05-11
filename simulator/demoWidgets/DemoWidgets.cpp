@@ -1,7 +1,7 @@
 #include "raylib.h"
-#include "../../widgets/button.h"
-#include "../../widgets/label.h"
-#include "../../widgets/textfield.h"
+#include "../widgets/button.h"
+#include "../widgets/label.h"
+#include "../widgets/textfield.h"
 
 int main() {
     InitWindow(800, 600, "Demo UI");

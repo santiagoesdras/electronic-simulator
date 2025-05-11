@@ -69,9 +69,13 @@ target_include_directories(external PUBLIC ${CMAKE_SOURCE_DIR}/external)
 add_library(ui
     simulator/ui/ui.cpp
     simulator/ui/ui.h
+    simulator/widgets/button.h
+    simulator/widgets/label.h
+    simulator/widgets/textField.h
 )
 target_include_directories(ui 
     PUBLIC ${CMAKE_SOURCE_DIR}/simulator/ui
+    PUBLIC ${CMAKE_SOURCE_DIR}/simulator/ui/widgets 
     projectUBLIC ${CMAKE_SOURCE_DIR}/external
         )
 
@@ -82,7 +86,7 @@ target_include_directories(ui PUBLIC ${raylib_SOURCE_DIR}/src)
 target_link_libraries(simulator PRIVATE external ui raylib)
 target_link_libraries(ui PUBLIC external)
 
-add_executable(demo_widgets simulator/ui/widgets/demo_widgets.cpp)
+add_executable(demo_widgets simulator/demoWidgets/DemoWidgets.cpp)
 target_link_libraries(demo_widgets raylib)
 target_include_directories(demo_widgets PRIVATE ${CMAKE_SOURCE_DIR}/simulator/ui/widgets)
 
