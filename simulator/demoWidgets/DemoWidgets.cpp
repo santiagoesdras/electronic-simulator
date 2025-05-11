@@ -1,10 +1,16 @@
+#include <iostream>
+
 #include "raylib.h"
 #include "../widgets/button.h"
 #include "../widgets/label.h"
 #include "../widgets/textfield.h"
 
+const int currentMonitor = GetCurrentMonitor();
+const int widthCurrentMonitor = GetMonitorWidth(currentMonitor);
+const int heigthCurrentMonitor = GetMonitorHeight(currentMonitor);
+
 int main() {
-    InitWindow(800, 600, "Demo UI");
+    InitWindow(widthCurrentMonitor, heigthCurrentMonitor, "Demo UI");
     SetTargetFPS(60);
 
     char input[64] = "";
@@ -31,7 +37,9 @@ int main() {
         }
 
         if (clicked && std::strlen(input) > 0) {
-            DrawText(TextFormat("Hola, %s!", input), 100, 300, 24, DARKGREEN);
+            DrawText(TextFormat("Hola, %s", input), 100, 300, 24, DARKGREEN);
+            DrawText(std::to_string(GetMonitorHeight(0)).c_str(), 100, 330, 24, DARKGREEN);
+            DrawText(TextFormat("Ancho de la ventana", GetScreenWidth()), 100, 360, 24, DARKGREEN);
         }
 
         EndDrawing();

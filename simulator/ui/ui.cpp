@@ -5,10 +5,11 @@
 #include "..\..\external\names.h"
 
 void UI::init() {
-    const int screentWidth = 800;
-    const int screentHeight = 450;
+    const int currentMonitor = GetCurrentMonitor();
+    const int widthCurrentMonitor = GetMonitorWidth(currentMonitor);
+    const int heigthCurrentMonitor = GetMonitorHeight(currentMonitor);
 
-    InitWindow(screentWidth, screentHeight, "Electronic simulator");
+    InitWindow(widthCurrentMonitor, heigthCurrentMonitor, "Electronic simulator");
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
