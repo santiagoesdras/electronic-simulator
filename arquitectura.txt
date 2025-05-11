@@ -1,0 +1,14 @@
+/simulador/
+│
+├── main.cpp                # interfaz con raylib (C++)
+├── renderer.cpp/.h         # dibujo de nodos, cables, etc.
+├── ui.cpp/.h               # botones, menús, etc.
+│
+├── core/                   # lógica compleja en C
+│   ├── circuit.h/c         # estructuras y funciones de circuitos
+│   ├── gates.h/c           # AND, OR, NOT, XOR, etc.
+│   └── bitops.h/c          # operaciones bit a bit más complejas
+│
+├── include/
+│   └── bindings.h          # encabezados con extern "C" para importar C en C++
+
