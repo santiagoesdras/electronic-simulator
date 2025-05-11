@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-const char** get_names();  // Retorna un arreglo de nombres terminando en NULL
+const char** getNames();  // Retorna un arreglo de nombres terminando en NULL
 
 #ifdef __cplusplus
 }

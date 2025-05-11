@@ -2,13 +2,13 @@
 #include "names.h"
 
 const char* names[] = {
-    "Ana",
-    "Bruno",
-    "Carlos",
-    "Diana"  // Marcador de fin
+    "Keneth",
+    "Ulysses",
+    "Esdras",
+    "Herobrine"  // Marcador de fin
 };
 
-const char** get_names() {
+const char** getNames() {
     return names;
 }
 
