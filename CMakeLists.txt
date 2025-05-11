@@ -82,3 +82,7 @@ target_include_directories(ui PUBLIC ${raylib_SOURCE_DIR}/src)
 target_link_libraries(simulator PRIVATE external ui raylib)
 target_link_libraries(ui PUBLIC external)
 
+add_executable(demo_widgets simulator/ui/widgets/demo_widgets.cpp)
+target_link_libraries(demo_widgets raylib)
+target_include_directories(demo_widgets PRIVATE ${CMAKE_SOURCE_DIR}/simulator/ui/widgets)
+
