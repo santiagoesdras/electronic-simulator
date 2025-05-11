@@ -2,6 +2,7 @@
 
 #include "ui.h"
 #include "raylib.h"
+#include "names.h"
 
 void UI::init() {
     const int screentWidth = 800;
@@ -13,7 +14,13 @@ void UI::init() {
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("Simulator", 190, 200, 20, LIGHTGRAY);
+        int namesCount = 0;
+        int x = 190, y = 200, size = 30;
+        const char** names = get_names();
+        for(int i = 0; i ++ ; i < 3){
+            DrawText(names[i], x, y, size, LIGHTGRAY);
+            y += 40;
+        }
         EndDrawing();
     }
 

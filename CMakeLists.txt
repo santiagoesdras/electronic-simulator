@@ -60,8 +60,9 @@ add_library(external
     external/bitops.c
     external/circuit.c
     external/gates.c
+    external/names.c
 )
-target_include_directories(external PUBLIC external)
+target_include_directories(external PUBLIC ${CMAKE_SOURCE_DIR}/external)
 
 # Simulator UI (C++)
 add_library(ui
