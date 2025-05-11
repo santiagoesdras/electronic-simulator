@@ -60,18 +60,25 @@ add_library(external
     external/bitops.c
     external/circuit.c
     external/gates.c
+    external/names.c
+    external/names.h
 )
-target_include_directories(external PUBLIC external)
+target_include_directories(external PUBLIC ${CMAKE_SOURCE_DIR}/external)
 
 # Simulator UI (C++)
 add_library(ui
     simulator/ui/ui.cpp
     simulator/ui/ui.h
 )
-target_include_directories(ui PUBLIC ${CMAKE_SOURCE_DIR}/simulator/ui)
+target_include_directories(ui 
+    PUBLIC ${CMAKE_SOURCE_DIR}/simulator/ui
+    projectUBLIC ${CMAKE_SOURCE_DIR}/external
+        )
 
 # Executable
 add_executable(simulator main.cpp)
 target_include_directories(simulator PRIVATE ${raylib_SOURCE_DIR}/src)
 target_include_directories(ui PUBLIC ${raylib_SOURCE_DIR}/src)
 target_link_libraries(simulator PRIVATE external ui raylib)
+target_link_libraries(ui PUBLIC external)
+

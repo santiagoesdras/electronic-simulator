@@ -2,6 +2,7 @@
 
 #include "ui.h"
 #include "raylib.h"
+#include "..\..\external\names.h"
 
 void UI::init() {
     const int screentWidth = 800;
@@ -13,7 +14,14 @@ void UI::init() {
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("Simulator", 190, 200, 20, LIGHTGRAY);
+        DrawText("Desarrolladores de ElectronicLab Gt: ", 15, 15, 40, BLACK);
+        int x = 20, y = 55, size = 30;
+        const char** names = getNames();
+        for(int i = 0; i < 3 ; i ++){
+            std::string actualName = " - " + std::string(names[i]);
+            DrawText(actualName.c_str(), x, y, size, BLACK);
+            y += 35;
+        }
         EndDrawing();
     }
 
